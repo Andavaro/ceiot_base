@@ -12,22 +12,26 @@ let database = null;
 const collectionName = "measurements";
 
 async function startDatabase() {
+    console.log('Starting database...');
     const uri = "mongodb://localhost:27017/?maxPoolSize=20&w=majority";	
     const connection = await MongoClient.connect(uri, {useNewUrlParser: true});
     database = connection.db();
 }
 
 async function getDatabase() {
+    console.log('Getting database...');
     if (!database) await startDatabase();
     return database;
 }
 
 async function insertMeasurement(message) {
+    console.log('Inserting measurement...');
     const {insertedId} = await database.collection(collectionName).insertOne(message);
     return insertedId;
 }
 
 async function getMeasurements() {
+    console.log('Getting measurements...');
     return await database.collection(collectionName).find({}).toArray();	
 }
 
@@ -41,13 +45,32 @@ app.use(express.static('spa/static'));
 
 const PORT = 8080;
 
+app.delete('/device', (req, res) => {
+    const deviceId = req.body.deviceId;
+
+    db.public.none("DELETE FROM devices WHERE device_id = '"+req.body.deviceId+"'");
+    console.log("Dispositivo "+deviceId+" eliminado");
+    res.send("Dispositivo "+deviceId+" eliminado");
+});
+
+
 app.post('/measurement', function (req, res) {
--       console.log("device id    : " + req.body.id + " key         : " + req.body.key + " temperature : " + req.body.t + " humidity    : " + req.body.h);	
+        console.log('Received POST request on /measurement endpoint');
+        console.log("device id    : " + req.body.id + " key         : " + req.body.key + " temperature : " + req.body.t + " humidity    : " + req.body.h);
+        var device = db.public.many("SELECT * FROM devices WHERE device_id = '"+req.body.id+"'");
+        let KEY = device[0].key;
+        //console.log("key: "+KEY);	
+        if (KEY !== req.body.key) {
+        res.status(403).send('Acceso no autorizado');
+        console.log("Clave incorrecta. Acceso no autorizado");
+        return;
+    }
     const {insertedId} = insertMeasurement({id:req.body.id, t:req.body.t, h:req.body.h});
 	res.send("received measurement into " +  insertedId);
 });
 
 app.post('/device', function (req, res) {
+        console.log('Received POST request on /device endpoint');
 	console.log("device id    : " + req.body.id + " name        : " + req.body.n + " key         : " + req.body.k );
 
     db.public.none("INSERT INTO devices VALUES ('"+req.body.id+ "', '"+req.body.n+"', '"+req.body.k+"')");
@@ -56,6 +79,7 @@ app.post('/device', function (req, res) {
 
 
 app.get('/web/device', function (req, res) {
+        console.log('Received GET request on /web/device');
 	var devices = db.public.many("SELECT * FROM devices").map( function(device) {
 		console.log(device);
 		return '<tr><td><a href=/web/device/'+ device.device_id +'>' + device.device_id + "</a>" +
@@ -74,6 +98,7 @@ app.get('/web/device', function (req, res) {
 });
 
 app.get('/web/device/:id', function (req,res) {
+    console.log('Received GET request on /web/device' + req.params.id);
     var template = "<html>"+
                      "<head><title>Sensor {{name}}</title></head>" +
                      "<body>" +
@@ -91,6 +116,7 @@ app.get('/web/device/:id', function (req,res) {
 
 
 app.get('/term/device/:id', function (req, res) {
+    console.log('Received GET request on /term/device/' + req.params.id);
     var red = "\33[31m";
     var green = "\33[32m";
     var blue = "\33[33m";
