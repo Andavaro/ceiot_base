@@ -1,4 +1,6 @@
 [
 	{"device_id":"00","name":"Fake Device 00","key":"123456"},
-	{"device_id":"01","name":"Fake Device 01","key":"234567"}
+	{"device_id":"01","name":"Fake Device 01","key":"234567"},
+	{"device_id":"02","name":"Fake Device 02","key":"987654"},
+	{"device_id":"03","name":"Fake Device 03","key":"876543"}
 ]
