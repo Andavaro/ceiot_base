@@ -25,6 +25,7 @@
 **Objetivo:** Evitar la implantación persistente de mecanismos maliciosos y asegurar detección temprana si se intentan instalar.
 
 **Acciones:** Restringir la capacidad de crear o modificar servicios en hosts mediante políticas de control de cambios y hardening (systemd, políticas de ejecución en routers/switches, cuentas separadas para gestión de arranque). Habilitar mecanismos de verificación de integridad de archivos en hosts críticos y en almacenamiento de configuración de dispositivos (FIM, AIDE, Tripwire), con alertas automáticas ante cualquier modificación de binarios, scripts de arranque o configuraciones de NVRAM. En dispositivos de red, forzar que solo firmware firmado y versiones aprobadas sean instalables (firmware signing). Mantener copias de configuración y firmware offline (versionadas y firmadas) para restauración rápida. Estas contramedidas contrarrestan técnicas T1543 (Create or Modify System Process) y T1505 (Modify System Image/Persistent Storage).
+
 ---
 
 ## 4) Exploitation 
