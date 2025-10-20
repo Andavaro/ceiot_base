@@ -48,7 +48,7 @@
 
 **Objetivo:** Garantizar que el acceso y las capacidades de control sobrevivan a reinicios y a intentos básicos de remediación.
 
-**Técnicas MITRE:** T1543 (Create or Modify System Process) y T1505 (Modify System Image / Persistent Storage) en términos relacionados con persistencia.
+**Técnicas MITRE:** T1543 (Create or Modify System Process) y T1505 (Server Software Component) en términos relacionados con persistencia.
 
 **Acciones:** Con privilegios adecuados, el atacante instala un mecanismo de persistencia en un host comprometido o modifica configuraciones persistentes en dispositivos de red (NVRAM, ajustes de arranque o perfiles de gestión) para mantener la capacidad de reingreso. Esto incluye asegurar que las rutas de administración o credenciales necesarias no se pierdan tras reinicios y que exista una forma de reactivar componentes de control si se detecta y limpia una instancia.
 
