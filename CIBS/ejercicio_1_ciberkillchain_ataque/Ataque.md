@@ -18,7 +18,7 @@
 
 **Objetivo:** Seleccionar y adaptar capacidades que encajen con las vulnerabilidades detectadas, priorizando vectores simples y efectivos dados los supuestos de la red.
 
-**Técnicas MITRE relevantes:** T1587 (Develop Capabilities) para el desarrollo o adaptación de herramientas y capacidades orientadas al acceso y control.
+**Técnicas MITRE:** T1587 (Develop Capabilities) para el desarrollo o adaptación de herramientas y capacidades orientadas al acceso y control.
 
 **Acciones:** Con la información de reconocimiento, el atacante decide el vector más plausible para el acceso inicial (por ejemplo, uso de credenciales por defecto, explotación conceptual de una interfaz web administrativa vulnerable o abuso de SNMP inseguro). Se diseña un enfoque de persistencia y control acordes al entorno, definiendo un mecanismo que permita mantener comunicación y orquestación una vez se alcance un punto de ejecución dentro de la red. 
 
@@ -28,7 +28,7 @@
 
 **Objetivo:** Obtener un primer acceso útil a un componente de la infraestructura (servidor con panel web, gateway, estación remota o punto de gestión).
 
-**Técnicas MITRE relevantes:** T1078 (Valid Accounts) en caso de uso o abuso de credenciales y T1190 (Exploit Public-Facing Application) cuando la entrada se produce vía aplicaciones con interfaz pública.
+**Técnicas MITRE:** T1078 (Valid Accounts) en caso de uso o abuso de credenciales y T1190 (Exploit Public-Facing Application) cuando la entrada se produce vía aplicaciones con interfaz pública.
 
 **Acciones:** El atacante entrega su vector de acceso en función de lo identificado en reconnaissance y weaponization. Vectores plausibles en este contexto son el uso de credenciales por defecto o mal gestionadas para acceder a interfaces administrativas, la explotación conceptual de fallos de validación en aplicaciones web de gestión o el aprovechamiento de un puerto de administración expuesto con controles débiles. La culminación de esta fase es la obtención de una cuenta o punto de ejecución en un host dentro de la red de monitoreo.
 
@@ -38,7 +38,7 @@
 
 **Objetivo:** Elevar privilegios y consolidar el acceso de modo que sea posible modificar configuraciones, subir artefactos persistentes o cambiar datos en sistemas de gestión.
 
-**Técnicas MITRE relevantes:** T1068 (Exploitation for Privilege Escalation) para la fase de elevación y T1078 (Valid Accounts) para moverse lateralmente o actuar con cuentas con privilegios.
+**Técnicas MITRE:** T1068 (Exploitation for Privilege Escalation) para la fase de elevación y T1078 (Valid Accounts) para moverse lateralmente o actuar con cuentas con privilegios.
 
 **Acciones:** A partir del punto de acceso inicial, el atacante busca obtener credenciales adicionales o explotar vectores que permitan elevar privilegios locales o administrativos en servidores NMS o en dispositivos de borde. El propósito es alcanzar permisos que permitan cambiar configuraciones de radios, switches o routers, insertar o modificar entradas en bases de datos de telemetría y disponer de cuentas con capacidad de gestión consolidada. Esta fase plantea la obtención de privilegios administrativos conceptuales sin describir métodos técnicos específicos.
 
@@ -48,7 +48,7 @@
 
 **Objetivo:** Garantizar que el acceso y las capacidades de control sobrevivan a reinicios y a intentos básicos de remediación.
 
-**Técnicas MITRE relevantes:** T1543 (Create or Modify System Process) y T1505 (Modify System Image / Persistent Storage) en términos conceptuales relacionados con persistencia.
+**Técnicas MITRE:** T1543 (Create or Modify System Process) y T1505 (Modify System Image / Persistent Storage) en términos conceptuales relacionados con persistencia.
 
 **Acciones:** Con privilegios adecuados, el atacante instala un mecanismo conceptual de persistencia en un host comprometido o modifica configuraciones persistentes en dispositivos de red (NVRAM, ajustes de arranque o perfiles de gestión) para mantener la capacidad de reingreso. Esto incluye asegurar que las rutas de administración o credenciales necesarias no se pierdan tras reinicios y que exista una forma de reactivar componentes de control si se detecta y limpia una instancia.
 
@@ -58,7 +58,7 @@
 
 **Objetivo:** Establecer un canal de comunicación encubierto y fiable para orquestar acciones sobre los artefactos comprometidos y recibir información útil desde ellos.
 
-**Técnicas MITRE relevantes:** T1071 (Application Layer Protocol) y T1573/T1095 (Protocol Tunneling/Encapsulation) aplicadas a la creación de canales de mando y control encubiertos.
+**Técnicas MITRE:** T1071 (Application Layer Protocol) y T1573/T1095 (Protocol Tunneling/Encapsulation) aplicadas a la creación de canales de mando y control encubiertos.
 
 **Acciones:** El atacante establece comunicaciones periódicas desde los hosts comprometidos hacia un controlador, o aprovecha canales de gestión existentes (por ejemplo SNMP o NMS) para enviar y recibir órdenes. El canal se diseña para mezclarse con tráfico legítimo de la red, pudiendo avanzar por protocolos y puertos comúnmente permitidos en la infraestructura (HTTP/HTTPS, túneles TCP, SNMP, etc). El C2 debe permitir emitir órdenes para manipular configuraciones y datos, y recoger estado o telemetría de dispositivos comprometidos.
 
@@ -68,6 +68,6 @@
 
 **Objetivo:** Manipular la integridad de la infraestructura de comunicaciones y de los datos de medición para producir evidencia convincente de fallas que motiven intervenciones de mantenimiento.
 
-**Técnicas MITRE relevantes:** T1609 (Modify Firmware) en escenarios de manipulación profunda y técnicas relacionadas con la alteración de integridad de datos y disponibilidad de servicios.
+**Técnicas MITRE:** T1609 (Modify Firmware) en escenarios de manipulación profunda y técnicas relacionadas con la alteración de integridad de datos y disponibilidad de servicios.
 
 **Acciones:** El atacante modifica parámetros administrativos y estados reportados por radios, switches o routers para simular degradación de enlaces, altera o inserta registros en bases de datos de telemetría para fabricar lecturas erráticas o erróneas de sensores, y, en escenarios más agresivos, corrompe o modifica firmwares/configuraciones críticas para provocar fallas persistentes. La selección concreta de acciones depende del nivel de privilegio alcanzado y de la ausencia de mecanismos de validación cruzada entre sensores que detecten las inconsistencias.
