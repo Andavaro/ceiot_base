@@ -58,7 +58,7 @@
 
 **Objetivo:** Establecer un canal de comunicación encubierto y fiable para orquestar acciones sobre los artefactos comprometidos y recibir información útil desde ellos.
 
-**Técnicas MITRE:** T1071 (Application Layer Protocol) y T1573/T1095 (Protocol Tunneling/Encapsulation) aplicadas a la creación de canales de mando y control encubiertos.
+**Técnicas MITRE:** T1071 (Application Layer Protocol) y T1573 (Protocol Tunneling) aplicadas a la creación de canales de mando y control encubiertos.
 
 **Acciones:** El atacante establece comunicaciones periódicas desde los hosts comprometidos hacia un controlador, o aprovecha canales de gestión existentes (por ejemplo SNMP o NMS) para enviar y recibir órdenes. El canal se diseña para mezclarse con tráfico legítimo de la red, pudiendo avanzar por protocolos y puertos comúnmente permitidos en la infraestructura (HTTP/HTTPS, túneles TCP, SNMP, etc). El C2 debe permitir emitir órdenes para manipular configuraciones y datos, y recoger estado o telemetría de dispositivos comprometidos.
 
