@@ -30,7 +30,7 @@
 
 **Técnicas MITRE:** T1078 (Valid Accounts) en caso de uso o abuso de credenciales y T1190 (Exploit Public-Facing Application) cuando la entrada se produce vía aplicaciones con interfaz pública.
 
-**Acciones:** El atacante entrega su vector de acceso en función de lo identificado en reconnaissance y weaponization. Vectores plausibles en este contexto son el uso de credenciales por defecto o mal gestionadas para acceder a interfaces administrativas, la explotación conceptual de fallos de validación en aplicaciones web de gestión o el aprovechamiento de un puerto de administración expuesto con controles débiles. La culminación de esta fase es la obtención de una cuenta o punto de ejecución en un host dentro de la red de monitoreo.
+**Acciones:** El atacante entrega su vector de acceso en función de lo identificado en reconnaissance y weaponization. Vectores plausibles en este contexto son el uso de credenciales por defecto o mal gestionadas para acceder a interfaces administrativas, la explotación de fallos de validación en aplicaciones web de gestión o el aprovechamiento de un puerto de administración expuesto con controles débiles. La culminación de esta fase es la obtención de una cuenta o punto de ejecución en un host dentro de la red de monitoreo.
 
 ---
 
@@ -40,7 +40,7 @@
 
 **Técnicas MITRE:** T1068 (Exploitation for Privilege Escalation) para la fase de elevación y T1078 (Valid Accounts) para moverse lateralmente o actuar con cuentas con privilegios.
 
-**Acciones:** A partir del punto de acceso inicial, el atacante busca obtener credenciales adicionales o explotar vectores que permitan elevar privilegios locales o administrativos en servidores NMS o en dispositivos de borde. El propósito es alcanzar permisos que permitan cambiar configuraciones de radios, switches o routers, insertar o modificar entradas en bases de datos de telemetría y disponer de cuentas con capacidad de gestión consolidada. Esta fase plantea la obtención de privilegios administrativos conceptuales sin describir métodos técnicos específicos.
+**Acciones:** A partir del punto de acceso inicial, el atacante busca obtener credenciales adicionales o explotar vectores que permitan elevar privilegios locales o administrativos en servidores NMS o en dispositivos de borde. El propósito es alcanzar permisos que permitan cambiar configuraciones de radios, switches o routers, insertar o modificar entradas en bases de datos de telemetría y disponer de cuentas con capacidad de gestión consolidada. 
 
 ---
 
@@ -48,9 +48,9 @@
 
 **Objetivo:** Garantizar que el acceso y las capacidades de control sobrevivan a reinicios y a intentos básicos de remediación.
 
-**Técnicas MITRE:** T1543 (Create or Modify System Process) y T1505 (Modify System Image / Persistent Storage) en términos conceptuales relacionados con persistencia.
+**Técnicas MITRE:** T1543 (Create or Modify System Process) y T1505 (Modify System Image / Persistent Storage) en términos relacionados con persistencia.
 
-**Acciones:** Con privilegios adecuados, el atacante instala un mecanismo conceptual de persistencia en un host comprometido o modifica configuraciones persistentes en dispositivos de red (NVRAM, ajustes de arranque o perfiles de gestión) para mantener la capacidad de reingreso. Esto incluye asegurar que las rutas de administración o credenciales necesarias no se pierdan tras reinicios y que exista una forma de reactivar componentes de control si se detecta y limpia una instancia.
+**Acciones:** Con privilegios adecuados, el atacante instala un mecanismo de persistencia en un host comprometido o modifica configuraciones persistentes en dispositivos de red (NVRAM, ajustes de arranque o perfiles de gestión) para mantener la capacidad de reingreso. Esto incluye asegurar que las rutas de administración o credenciales necesarias no se pierdan tras reinicios y que exista una forma de reactivar componentes de control si se detecta y limpia una instancia.
 
 ---
 
