@@ -68,6 +68,6 @@
 
 **Objetivo:** Manipular la integridad de la infraestructura de comunicaciones y de los datos de medición para producir evidencia convincente de fallas que motiven intervenciones de mantenimiento.
 
-**Técnicas MITRE:** T1609 (Modify Firmware) en escenarios de manipulación profunda y técnicas relacionadas con la alteración de integridad de datos y disponibilidad de servicios.
+**Técnicas MITRE:** T1495 (Firmware Corruption) en escenarios de manipulación profunda y técnicas relacionadas con la alteración de integridad de datos y disponibilidad de servicios.
 
 **Acciones:** El atacante modifica parámetros administrativos y estados reportados por radios, switches o routers para simular degradación de enlaces, altera o inserta registros en bases de datos de telemetría para fabricar lecturas erráticas o erróneas de sensores, y, en escenarios más agresivos, corrompe o modifica firmwares/configuraciones críticas para provocar fallas persistentes. La selección concreta de acciones depende del nivel de privilegio alcanzado y de la ausencia de mecanismos de validación cruzada entre sensores que detecten las inconsistencias.
